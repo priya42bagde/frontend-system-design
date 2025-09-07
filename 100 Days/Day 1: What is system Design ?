@@ -1,0 +1,19 @@
+System Design is the process of defining the architecture (overall structure or blueprint of a system, like a building plan), components (independent building blocks, like authentication service, database, or APIs), modules (smaller functional units inside a component, like a payment calculation logic inside a payment service), interfaces (the way two components interact or communicate with each other, like a door between rooms), and data flow (the movement of data between parts of the system, like water flowing in pipes) to meet specific requirements.
+
+In simple words, it’s about taking a big problem or idea and breaking it into smaller parts, then deciding how those parts should work together so that the system is scalable (can grow to handle more users or data smoothly), reliable (consistently works as expected without frequent failures), and maintainable (easy to fix bugs, improve, or add features in the future).
+
+System design usually happens in two stages:
+
+1. High-Level Design (HLD) – This is like the bird’s-eye view of the system. It focuses on the overall system architecture (big picture, like what services exist and how they connect), technology stack (set of technologies like React, Node.js, or MongoDB), and data flow (how information travels between components).
+2. Low-Level Design (LLD) – This is the detailed, microscopic view. It describes how each module will be implemented, including database schemas (blueprints of how data is stored in tables and relationships), class diagrams (visual representation of object-oriented code structure), and function-level details.
+
+For example, if I were asked to design a ride-sharing app like Uber, at the high level, I would think about big components like the user app, driver app, backend services, database, and communication system. At the low level, I would define exactly how data like user location, ride requests, and payments are stored, retrieved, and updated in the database and how each function interacts.
+
+The main goals of system design are:
+
+Scalability (handle growth in traffic or data),
+Performance (speed and efficiency of the system),
+Fault-Tolerance (system continues to work even if some parts fail),
+and Security (protecting user data and preventing unauthorized access).
+
+So, in short, System Design is not just about coding — it’s about thinking holistically (big-picture, end-to-end perspective) and creating a blueprint (detailed plan) that ensures the system works effectively for today’s needs and can also grow for future requirements."
