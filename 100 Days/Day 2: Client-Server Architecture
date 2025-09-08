@@ -1,1 +1,11 @@
+Client–Server Architecture is basically a model where the work is divided between two sides: the Client and the Server.
 
+The Client is usually the front-end application, like a browser or mobile app, that sends requests.
+
+The Server is the back-end system that receives those requests, processes them — maybe by checking a database or applying some business rules — and then sends a response back.
+
+So, for example, when I log in to an e-commerce site, my browser (the client) sends my credentials to the server. The server checks them in the database, and if everything matches, it sends a success response back to the client. The client then updates the screen to show that I’m logged in.
+
+This model is powerful because it separates responsibilities: the client focuses on user experience, while the server focuses on data, logic, and security. It also makes the system more scalable — meaning we can handle more users just by adding more servers — and secure, since sensitive data is managed on the server side.
+
+In short, Client–Server Architecture is all about having clear roles: the client requests, the server responds, and both together make the system work smoothly.
