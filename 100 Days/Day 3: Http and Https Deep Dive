@@ -1,1 +1,20 @@
 
+HTTP stands for HyperText Transfer Protocol. It’s the foundation of communication on the web. In simple terms, it’s the set of rules that define how clients (like browsers) and servers talk to each other. Whenever we open a website, the browser sends an HTTP request to the server, and the server responds with resources like HTML, CSS, JavaScript, or data in JSON format.
+
+HTTP is stateless, meaning each request is independent. The server doesn’t remember past requests unless we add something like cookies, tokens, or sessions to track the state.
+
+Now, HTTPS is simply HTTP with security. The 'S' stands for Secure. It uses TLS/SSL encryption (Transport Layer Security / Secure Sockets Layer) to make sure three things happen:
+
+Encryption – The data transferred between client and server is scrambled, so no one in the middle (like a hacker or ISP) can read it.
+
+Authentication – The server proves its identity using a digital certificate issued by a trusted authority, so the client knows it’s talking to the real server.
+
+Integrity – It ensures that the data hasn’t been tampered with during transfer.
+
+For example, if I log in to my bank account over HTTP, my username and password would travel as plain text, which is risky. But with HTTPS, they’re encrypted, so even if someone intercepts the traffic, they can’t read it.
+
+In terms of protocols, HTTP usually runs on port 80, while HTTPS runs on port 443.
+
+Today, HTTPS is considered the default. In fact, most browsers mark HTTP-only sites as ‘Not Secure’.
+
+So, to summarize: HTTP defines how the web communicates, and HTTPS adds a security layer on top using TLS/SSL, ensuring safe, trusted, and encrypted communication."
