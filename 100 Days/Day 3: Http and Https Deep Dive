@@ -18,3 +18,45 @@ In terms of protocols, HTTP usually runs on port 80, while HTTPS runs on port 44
 Today, HTTPS is considered the default. In fact, most browsers mark HTTP-only sites as ‘Not Secure’.
 
 So, to summarize: HTTP defines how the web communicates, and HTTPS adds a security layer on top using TLS/SSL, ensuring safe, trusted, and encrypted communication."
+
+
+
+Now, whenever a client makes an HTTP/HTTPS request, the server responds not only with data (like HTML, CSS, or JSON) but also with an HTTP status code. These status codes are three-digit numbers that tell the client what happened with the request.
+
+They are grouped into categories:
+
+1xx – Informational Codes
+
+Example: 100 Continue – The server acknowledges the request headers, and the client can continue sending the body.
+
+2xx – Success Codes
+
+200 OK – The request succeeded, and the response body contains the result.
+
+201 Created – A new resource was successfully created, often in POST requests.
+
+3xx – Redirection Codes
+
+301 Moved Permanently – The resource is permanently at a new URL.
+
+302 Found – Temporary redirect.
+
+304 Not Modified – The cached version can be used; no need to re-download.
+
+4xx – Client Error Codes
+
+400 Bad Request – The request was invalid or malformed.
+
+401 Unauthorized – Authentication is required.
+
+403 Forbidden – The server understood the request but refuses to fulfill it.
+
+404 Not Found – The requested resource doesn’t exist.
+
+5xx – Server Error Codes
+
+500 Internal Server Error – Something went wrong on the server.
+
+502 Bad Gateway – The server received an invalid response from another server.
+
+503 Service Unavailable – The server is down or overloaded.
