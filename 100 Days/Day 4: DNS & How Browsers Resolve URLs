@@ -1,1 +1,12 @@
 
+DNS basically stands for Domain Name System. I usually like to call it the phonebook of the internet. Humans type website names like amazon.com, but computers actually talk in IP addresses like 142.250.xxx.xxx. So DNS is what helps convert the name into that IP address.
+
+Now, the way a browser resolves a URL goes step by step. First, the browser checks if it already knows the IP from its cache — like if I visited the same site recently. If not, it asks the operating system, which also keeps a small memory of DNS lookups.
+
+If the OS doesn’t have it either, then the request goes to something called a DNS resolver — usually provided by my ISP or sometimes Google DNS like 8.8.8.8. That resolver then does the heavy lifting.
+
+It starts by asking a Root DNS Server — ‘Hey, where can I find .com domains?’ The root points it to the TLD server responsible for .com. Then the resolver asks that TLD server — ‘Where can I find amazon.com?’ The TLD server points it further to the Authoritative DNS Server for Amazon. Finally, that authoritative server responds with the actual IP address of Amazon’s server.
+
+Once the resolver gets that IP, it passes it back to my browser. Now my browser can make a direct HTTP or HTTPS request to that IP, and that’s when the website loads.
+
+So in simple words: DNS is the translator, and the resolution process is just about finding the right IP step by step — from browser cache all the way down to the authoritative DNS server."
