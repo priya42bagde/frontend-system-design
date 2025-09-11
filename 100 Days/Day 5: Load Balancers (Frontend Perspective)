@@ -1,1 +1,14 @@
 
+Load Balancer is like a smart traffic manager that sits between the user’s browser and the backend servers.
+
+It distributes incoming requests across multiple servers so no single server is overloaded. This helps in three main ways:
+
+Performance – users get faster responses because traffic is spread out.
+
+Reliability – if one server goes down, traffic is rerouted to others, so the website still works.
+
+Scalability – as traffic grows, more servers can be added without changing anything on the frontend.
+
+For example, when I visit Amazon, my request goes to a load balancer, which forwards it to the healthiest or least busy server. I don’t see this process, but I experience a fast and uninterrupted website.
+
+So, in short, a load balancer ensures that from the user’s point of view, the app is always fast, available, and smooth."
