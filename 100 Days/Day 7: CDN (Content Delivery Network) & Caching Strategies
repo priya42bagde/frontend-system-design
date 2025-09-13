@@ -1,1 +1,17 @@
+A CDN (Content Delivery Network) is basically a network of servers spread across the globe. Instead of always fetching content from the main server, the CDN stores copies of static files like images, CSS, or JavaScript and serves them from the server closest to the user. This reduces distance, so websites load much faster.
 
+Now, about caching strategies. Caching just means storing a copy of data temporarily so we don’t fetch it again and again.
+
+On the browser side, we use headers like Cache-Control to tell the browser how long to keep files.
+
+On the CDN side, it also caches responses so multiple users can get files quickly without hitting the main server.
+
+Common strategies are:
+
+Cache First → Use cache if available (best for static assets).
+
+Network First → Get fresh data, but fallback to cache if offline (best for APIs).
+
+Stale-While-Revalidate → Show cached data instantly and quietly update it in the background.
+
+So together, CDN + caching strategies make apps both faster and more reliable for users."
