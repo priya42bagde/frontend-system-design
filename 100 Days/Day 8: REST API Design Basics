@@ -1,1 +1,15 @@
+When we talk about REST API design, the first thing to know is that REST stands for Representational State Transfer. It’s not a protocol but an architectural style for designing networked applications, mainly APIs. The central idea is that everything is modeled as a resource, and each resource is uniquely identified using a URL. For example, /users represents a collection of users, and /users/101 represents a specific user with ID 101.
 
+To interact with these resources, REST uses standard HTTP methods. GET is used to retrieve a resource, POST to create a new resource, PUT or PATCH to update an existing resource, and DELETE to remove one. Because of this uniformity, REST APIs are predictable — if you know the endpoint and the HTTP method, you can usually guess what the API will do.
+
+Another important property is statelessness. Each request from the client must contain all the necessary information, whether that’s authentication details, resource IDs, or data payloads. The server doesn’t store the context of the client between requests. This makes REST highly scalable, because any server in a load-balanced setup can independently handle any request.
+
+Responses in REST are typically in JSON because it’s lightweight, human-readable, and widely supported, although XML or other formats are possible. Along with the response body, the API communicates the status of each request using standard HTTP status codes. For example, a successful GET request might return 200 OK, a newly created resource might return 201 Created, invalid input could return 400 Bad Request, a missing authentication token might give 401 Unauthorized, and server-side errors would return 500 Internal Server Error. Using these status codes consistently is considered good REST design because it makes the API easier to consume.
+
+Consistency also plays a big role in naming and structuring endpoints. The best practice is to use plural nouns for resources, like /products rather than /product, and to use nested resources for relationships, such as /users/101/orders for fetching a specific user’s orders. This makes the API intuitive and predictable.
+
+Another best practice is versioning. APIs often evolve, so introducing versions ensures backward compatibility. A common approach is to include the version in the URL, like /api/v1/users. This way, older clients continue working while newer clients can adopt the updated version.
+
+Security is fundamental in REST API design. Communication should always happen over HTTPS to ensure encryption. For authentication and authorization, APIs commonly use OAuth, JWT, or API keys. Input validation is also essential to prevent malicious requests, and rate limiting helps protect servers from abuse or overload.
+
+Overall, a well-designed REST API is resource-oriented, uses consistent and meaningful endpoints, relies on HTTP methods for actions, communicates clearly through status codes, remains stateless, and ensures security and scalability. These principles make it easier for frontend developers or other consumers to integrate with the API and build reliable applications.
