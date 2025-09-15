@@ -10,7 +10,3 @@ For versioning, REST often uses /api/v1/ style versioning, while GraphQL evolves
 From a frontend perspective, REST is simpler, widely used, easy to debug with tools like Postman, and great for many applications. GraphQL gives much more flexibility and efficiency when the UI needs to fetch related or complex data, because I can control the exact payload and reduce round-trips.
 
 So, REST is a good default for simplicity and ecosystem support, while GraphQL is powerful when the frontend needs precise, optimized data fetching. Both have clear strengths, and the choice depends on the project’s needs.
-
-Would you like me to also make this into a short revision note (bullet-point flashcard style) so you can glance at it in under 1 minute before an interview?
-
-ChatGPT can make mistakes. Check important info. See Cookie
