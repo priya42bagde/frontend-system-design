@@ -1,1 +1,16 @@
 
+When I compare GraphQL and REST as a frontend developer, the key difference is how data is fetched. REST has multiple endpoints, and each endpoint returns fixed data. This can cause over-fetching, where I get more data than I need, or under-fetching, where I have to make extra calls. For example, /users/5 gives user details and /users/5/posts gives posts — that’s two calls.
+
+GraphQL instead has a single endpoint, and I can ask for exactly the fields I want in one request. So I can get the user’s name, email, and their post titles in a single query. This avoids over-fetching and under-fetching, and it reduces network requests, which is especially useful for complex UIs.
+
+Caching is simpler in REST because each resource maps to a URL and works naturally with HTTP caching. In GraphQL, since everything goes through one endpoint, caching requires advanced libraries like Apollo or Relay. Error handling also differs: REST uses standard HTTP status codes like 200, 404, and 500, while GraphQL usually returns 200 and includes errors in the response body.
+
+For versioning, REST often uses /api/v1/ style versioning, while GraphQL evolves the schema by deprecating old fields instead of creating new versions. This makes upgrades smoother but needs careful schema management.
+
+From a frontend perspective, REST is simpler, widely used, easy to debug with tools like Postman, and great for many applications. GraphQL gives much more flexibility and efficiency when the UI needs to fetch related or complex data, because I can control the exact payload and reduce round-trips.
+
+So, REST is a good default for simplicity and ecosystem support, while GraphQL is powerful when the frontend needs precise, optimized data fetching. Both have clear strengths, and the choice depends on the project’s needs.
+
+Would you like me to also make this into a short revision note (bullet-point flashcard style) so you can glance at it in under 1 minute before an interview?
+
+ChatGPT can make mistakes. Check important info. See Cookie
