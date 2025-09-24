@@ -1,1 +1,18 @@
 
+when we build frontend applications, one common question is — where should we store data on the client side? Usually, we think about three main options: cookies, localStorage, and sessionStorage. Each one has different design implications, especially for security and user experience.
+
+Cookies are the oldest method. They were originally made to store small pieces of data, like session IDs, and they automatically get sent with every HTTP request to the server. That makes them really useful for things like authentication because the server can rely on them. But the flip side is, because cookies travel back and forth with each request, they can expose you to risks like CSRF if not configured properly. So if you’re storing sensitive data, you usually want to set cookies as HttpOnly, Secure, and SameSite.
+
+Now, localStorage is newer and designed purely for the client side. The data you put in localStorage stays even after the user closes the browser, so it’s persistent. This is useful for things like saving user preferences, themes, or caching API responses. But the important catch is that localStorage is accessible through JavaScript, so if your site has an XSS vulnerability, an attacker could steal that data. That’s why storing sensitive tokens in localStorage is generally discouraged.
+
+SessionStorage is very similar to localStorage, but with one difference — the data lasts only until the browser tab is closed. As soon as you close the tab, everything is wiped. This makes it good for temporary data like a one-time form draft or session state. Like localStorage, it’s also vulnerable to XSS because JavaScript can access it.
+
+From a design perspective, the implications are:
+
+Use cookies when you need server-side access and automatic transmission, especially for authentication sessions.
+
+Use localStorage for client-side data that should persist across sessions but isn’t sensitive.
+
+Use sessionStorage when you only need the data for the current tab session.
+
+So in short, cookies are tied closely to the server, while localStorage and sessionStorage are purely client-side. And as frontend developers, we have to balance convenience with security when choosing where to store data.”
