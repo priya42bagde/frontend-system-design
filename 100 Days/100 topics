@@ -153,3 +153,29 @@ Goal: Apply everything to real-world system design interview problems.
 29. Batch vs Stream Processing: https://lnkd.in/gKtj_qWh
 30. Geohashing: https://lnkd.in/gjSbKdpN
 ------------------------------------------------------------------------
+
+
+• Vertical vs horizontal scaling – upgrading one machine vs adding more machines
+
+• Single point of failure – why one server is never enough
+
+• Load balancing (idea level) – distributing traffic across servers
+
+• Stateful vs stateless services – why stateless systems scale better
+
+• Caching basics – reducing repeated work and database load
+
+• Read-heavy vs write-heavy systems – usage defines design
+
+• Consistency vs availability (CAP thinking) – what to prioritize during failures
+
+• Database indexing – why some queries remain fast at scale
+
+• Concurrency basics – multiple users accessing data at the same time
+
+• Rate limiting – protecting systems from overload
+
+• Failure handling – what happens when one component goes down
+
+---------------------------------------------------------------
+
