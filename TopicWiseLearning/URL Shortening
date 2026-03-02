@@ -1,0 +1,211 @@
+Interviewer:
+Can you design a URL shortening service?
+
+Interviewee:
+Yes. Before I start designing, I’d like to understand what exactly we want the system to do.
+
+Interviewer:
+Sure.
+
+Interviewee:
+At a basic level, I think the system should:
+
+1. Take a long URL from the user.
+2. Generate a short URL.
+3. When someone clicks the short URL, redirect them to the original one.
+
+Optionally, we may also want to track how many times the link was clicked.
+
+Interviewer:
+That sounds reasonable. What about performance and scale?
+
+Interviewee:
+Right. Since this service could be used by many people, we should assume high traffic.
+
+For example:
+
+* Millions of URLs created every month.
+* Many more redirects than creations.
+
+So this will be a read-heavy system. That means we must make redirects very fast.
+
+Interviewer:
+Okay. So how would your system look at a high level?
+
+Interviewee:
+I’ll keep it simple.
+
+We will have:
+
+* A Load Balancer in front.
+* Multiple application servers behind it.
+* A database to store the URL mapping.
+* A cache to make redirects faster.
+
+So the flow would be:
+
+When creating a short URL:
+User → Load Balancer → App Server → Database → Return short URL
+
+When redirecting:
+User → Load Balancer → App Server → Check Cache
+If found → redirect
+If not → fetch from DB → update cache → redirect
+
+Interviewer:
+Good. Now tell me, how will you generate the short URL?
+
+Interviewee:
+The simplest way is this:
+
+When we store the long URL in the database, the database gives us a unique ID like:
+
+1
+2
+3
+4
+
+Instead of showing that number directly, we convert it into letters and numbers.
+
+For example:
+125 becomes something like "cb".
+
+This is done using something called Base62 encoding. But in simple terms, we are just converting numbers into a shorter mix of letters and digits.
+
+This guarantees:
+
+* No duplicate codes.
+* No collisions.
+* Very simple logic.
+
+Interviewer:
+What could go wrong with that approach?
+
+Interviewee:
+If we rely on a single database to generate IDs, it might become a bottleneck when traffic becomes very high.
+
+To improve that:
+
+* We can distribute ID generation.
+* Or use a special distributed ID generator.
+* Or shard the database.
+
+So the system does not depend on one single machine.
+
+Interviewer:
+Good thinking. Now explain why you need a cache.
+
+Interviewee:
+Because most of the traffic will be redirects.
+
+If every redirect hits the database, the database may get overloaded.
+
+So we add a cache like Redis.
+
+Think of it like this:
+
+* Database = permanent storage.
+* Cache = fast temporary memory.
+
+When a short URL is accessed:
+We first check the cache.
+If found, we redirect immediately.
+If not, we fetch from DB and then store it in cache.
+
+This makes the system much faster.
+
+Interviewer:
+What if the cache crashes?
+
+Interviewee:
+That’s okay.
+
+Cache is only for speed, not for correctness.
+
+If cache fails, we directly read from the database.
+System will still work, but may be slightly slower.
+
+Interviewer:
+How would you handle very high traffic?
+
+Interviewee:
+We scale horizontally.
+
+That means:
+
+* Add more app servers.
+* Load balancer distributes traffic.
+* Use database replicas for reads.
+* Use distributed cache cluster.
+
+So instead of making one machine very powerful, we add more machines.
+
+Interviewer:
+How would you support link expiration?
+
+Interviewee:
+In the database, we add a column called expiration_time.
+
+When someone clicks the short URL:
+We check if it’s expired.
+If yes, return an error.
+If not, redirect normally.
+
+Interviewer:
+How would you count clicks?
+
+Interviewee:
+We should not update click count directly in the database during redirect, because that will slow things down.
+
+Instead:
+When redirect happens,
+We send an event to a queue.
+A background worker processes those events and updates click count.
+
+So redirect stays fast.
+
+Interviewer:
+What security problems do you see?
+
+Interviewee:
+A few:
+
+1. Someone might shorten malicious URLs.
+   We may need validation or scanning.
+
+2. Someone may try guessing short URLs.
+   So short codes should be long enough.
+
+3. Someone may send too many requests.
+   So we need rate limiting.
+
+Interviewer:
+If you summarize your design in simple words?
+
+Interviewee:
+This system stores a mapping between short code and long URL.
+
+It uses:
+
+* A database for permanent storage.
+* A cache for fast access.
+* Multiple servers for scalability.
+* A load balancer to distribute traffic.
+* Asynchronous processing for analytics.
+
+It is optimized for fast redirects and high traffic.
+
+Interviewer:
+Since you have strong frontend experience, how would you contribute?
+
+Interviewee:
+From frontend side:
+
+* I would ensure the UI is fast and responsive.
+* Proper loading and error states.
+* Retry logic for failures.
+* Efficient analytics dashboard using pagination and lazy loading.
+* Good accessibility and performance practices.
+
+That shows I think about both backend design and user experience.
+
