@@ -1,0 +1,74 @@
+What is CAP Theorem?
+
+CAP Theorem is about distributed systems—systems where your data is spread across many computers (nodes). It says:
+
+You can’t have Consistency, Availability, and Partition Tolerance all at the same time—at least during a network problem.
+
+Let’s define them in plain terms:
+
+Consistency (C) → Everyone sees the same latest data. If you update something, all nodes know it immediately. No one sees old/stale info.
+Example: Bank balance must always be accurate.
+Availability (A) → The system always gives you a response, even if some nodes are out-of-date.
+Example: Social media feed still loads even if some servers are down.
+Partition Tolerance (P) → The system keeps working even if network fails and nodes can’t talk to each other.
+Example: Some servers in another city can’t connect, but the system doesn’t crash.
+
+Key idea:
+When the network splits (partition), you must choose:
+
+Consistency → Some users may see errors or timeouts, but data is always correct.
+Availability → Everyone gets a response, but some data may be temporarily wrong.
+CP vs AP: Two Ways to Handle Failures
+
+1. CP (Consistency + Partition Tolerance)
+
+Focus: Data is always correct.
+Behavior: If the network splits, the side with fewer nodes may stop working.
+Example: Bank system refuses a transaction if it can’t be sure balance is correct.
+Pros: No conflicting data.
+Cons: Some requests fail during partition.
+
+2. AP (Availability + Partition Tolerance)
+
+Focus: System stays up at all costs.
+Behavior: Both sides of a split keep working, even if data may be inconsistent temporarily.
+Example: Social media feeds continue showing posts, even if some servers have slightly old data.
+Pros: System is always available.
+Cons: Some data may need fixing later (eventual consistency).
+How a Partition Actually Plays Out
+
+Imagine 5 servers:
+
+Network splits → 3 servers on one side, 2 on the other.
+
+CP system:
+
+Majority (3 nodes) keeps working.
+Minority (2 nodes) stops processing writes.
+When network heals → minority updates from majority. ✅ Correct data, some users saw errors.
+
+AP system:
+
+Both sides keep accepting writes.
+When network heals → system resolves conflicts. ⚠️ Some users saw slightly inconsistent data.
+Common Mistakes People Make
+Thinking CAP is permanent → Systems aren’t “always CP or AP.” Normal operation can give both.
+Ignoring partition tolerance → Network failures will happen; you can’t avoid them.
+Confusing CAP consistency with ACID consistency → CAP is about distributed nodes, ACID is about transactions inside a database.
+Forgetting recovery → Choosing availability requires a plan to fix conflicts later.
+How to Decide: A Simple Question
+
+What hurts more: returning wrong data, or returning no data?
+
+Wrong data hurts → Pick CP (e.g., payments, bank balances).
+No data hurts → Pick AP (e.g., feeds, search, analytics).
+
+Most real systems mix them:
+
+CP core → Handles critical, correct data.
+AP edges → Serve cached or fast-access data to users.
+Takeaway
+
+CAP doesn’t give new options—it tells you what your system is already doing during failures and whether it’s the right tradeoff.
+
+In short: CAP is about making conscious choices for network failures, not about limiting your system forever.
