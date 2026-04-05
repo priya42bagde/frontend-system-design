@@ -57,6 +57,11 @@ Microservices Architecture: Microservices architecture divides applications into
 Data Partitioning: Data partitioning divides data based on criteria like user or region to improve scalability.
 Content Delivery Networks (CDNs): CDNs deliver cached content from locations closer to users, reducing latency.
 Queueing Systems: Queueing systems handle requests asynchronously to manage traffic spikes and prevent overload. 
+Auto-Scaling: It means automatically adjusting the number of active servers based on the current load.
+Diagonal Scaling: A combination of vertical and horizontal scaling. Start with vertical scaling and switch to horizontal scaling when the vertical limit is reached.
+Multi-region Deployment: Deploy the application in multiple data centers or cloud regions to reduce latency and improve redundancy.
+
+This ensures that the system can handle spikes in traffic without manual intervention.
 
 Challenges and Trade-offs in Scalability:
 Cost Vs Scalability: Scaling improves performance and availability but often increases infrastructure and operational costs.
