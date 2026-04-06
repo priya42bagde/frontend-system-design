@@ -88,16 +88,52 @@ Application Layer: The complete data is delivered to the user application (like 
 Why TCP/IP is Used Over the OSI Model
 TCP/IP is preferred over the OSI model because it is simpler, practical, and widely implemented in real-world networks and the Internet. Unlike OSI, which is mostly theoretical, TCP/IP is protocol-driven and focuses on actual communication needs.
 --------
-DNS
-
-
-
-
+DNS: DNS is a system that translates human-readable domain names into IP addresses so computers can communicate over the internet
+How it works:
+User Input: The user enters a domain name (e.g., www.geeksforgeeks.org) in the browser.
+Local Cache Check: The browser or OS checks its cache for a stored IP address.
+DNS Resolver Query: If not found, the request is sent to a DNS resolver (usually by ISP).
+Root Server Query: The resolver queries a root server, which points to the correct TLD server.
+TLD Server Response: The TLD server directs the resolver to the domain’s authoritative server.
+Authoritative Server Response: The authoritative server returns the actual IP address.
+Final Response: The resolver sends the IP back to the user, and the browser connects to the server.
+-------
+Structure of DNS: The structure of DNS is hierarchical in nature, enabling scalable and organized domain name resolution across the global Internet.
+1. Root:
+The topmost level of the DNS hierarchy.
+Represented by a dot (.) at the end of a domain name
+Acts as the starting point of domain resolution
+2. Top-Level Domains (TLDs):
+The level directly below the root that defines domain extensions.
+Includes extensions like .com, .org, .net, .edu
+Helps categorize domains by purpose or region
+3. Second-Level Domains:
+The main domain name registered by an organization.
+Appears before the TLD (e.g., "example" in example.com)
+Uniquely identifies a domain under a TLD
+4. Subdomains:
+Extensions of the main domain used for organization.
+Examples: www, mail, blog
+Helps structure different parts of a website
+5. Hostnames:
+Identifies specific servers or devices within a domain.
+Examples: web1, mailserver, ftp
+Maps to actual IP addresses using DNS records
+--------
 HTTP
+
+------
 HTTP Headers
+
+------
 HTTP Methods
+
+------
 HTTP Status Codes
+
+------
 HTTP Cookies
+
 -----
 B. Different API Styles
 Restful API
