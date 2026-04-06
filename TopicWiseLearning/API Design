@@ -1,0 +1,114 @@
+What is API Design?
+API Design refers to planning and structuring how applications communicate with each other through an API (Application Programming Interface). Think of an API as a bridge that allows different software systems to talk to one another, share data, or trigger actions.
+----
+A. Learn the Basics
+1.1: How Do APIs Work? - APIs operate through a request response cycle between a client and a server.  This exchanged data is in the form of HTML, JSON, XML, and Text.
+1.1.1 API client: The API client sends the request to the API server. This request can be triggered in many ways. For example, when a user clicks a button or enters a search term.
+1.1.2 API request:
+-Endpoint: An API endpoint is a URL that provides access to a specific resource. For example, the article's end point in GeeksforGeeks would contain the logic for processing all requests that are related to articles.
+-Methods: The request method includes the type of operation that the client needs to perform on a given resource. REST APIs are accessible through standard HTTP methods, which perform common actions like retrieving, creating, updating, and deleting data.
+-Parameters: Parameters are the variables that are passed to an API endpoint to provide specific instructions for the API to process. These parameters can be included in the API request as part of the URL, in the query string, or in the request body. For example, the /articles endpoint of a blogging API might accept a “topic” parameter, which it would use to access and return articles on a specific topic.
+-Request headers : Request headers are key-value pairs that provide extra details about the request, such as its content type or authentication credentials.
+-Request body: The body is the main part of the request, and it includes the actual data that is required to create, update, or delete a resource. For instance, if you were creating a new article in GeeksforGeeks, the request body would likely include the article's content, title, and author.
+1.1.3 API server: The API client sends the request to the API server, which is responsible for handling authentication, validating input data, and retrieving or manipulating data.
+1.1.4 API response:Finally, the API server sends a response to the client. The API response typically includes the following components such as HTTP status codes, response headers and response body.
+
+This communication happens over the HTTP/HTTPS protocol, with additional security via headers, tokens, or cookies.
+
+1.2: Types of API Architectures:
+1.2.1. REST (Representational State Transfer):
+REST is a simple, flexible API architecture that uses HTTP methods (GET, POST, PUT, DELETE) for communication.
+Data Format: JSON, XML.
+1.2.2. SOAP (Simple Object Access Protocol):
+SOAP is a more rigid protocol that requires XML based messaging for communication. Strict and secure protocol using XML for structured messaging.
+Data Format: XML
+1.2.3. GraphQL:
+Modern query language that lets clients fetch only the data they need.
+Data Format: JSON
+1.2.4. gRPC:
+High performance framework using Protocol Buffers (Protobuf).
+Data Format: Binary
+
+1.3 What are REST APIs? - It defines a set of functions (GET, PUT, POST, DELETE) that clients use to access server data. The functions used are:
+GET (retrieve a record)
+PUT (update a record)
+POST (create a record)
+DELETE (delete the record)
+Its main feature is that REST API is stateless, i.e., the servers do not save clients' data between requests.
+
+2. Types of API - There are four different types of APIs commonly used in web services: public, partner, private and composite.
+Public API : A public API is open and available for use by any outside developer or business. These APIs can be used by anyone and these are also called as open APIs.
+Partner API : A partner API is made available to specifically selected and authorized outside developers or API consumers. The partners have some rights and licenses to access these APIs. These cannot be accessed by the public.
+Private API : Unlike Partner APIs, A private API is used only by internal users of an organization. Outsiders are not given any access to these APIs. These APIs are used by different teams inside the organization.
+Composite API : When the tasks are interconnected with each other, the APIs are combined to perform such tasks. This combination of APIs is called as composite API.
+
+
+Types of API and Applications
+TCP/IP
+DNS
+HTTP
+HTTP Headers
+HTTP Methods
+HTTP Status Codes
+HTTP Cookies
+-----
+B. Different API Styles
+Restful API
+JSON API
+WebSocket
+SOAP API
+GraphQL API
+gRPC API
+-----
+C. API Features
+Rest Principles
+URI Design
+API Versioning
+CRUD Operations
+Pagination
+Rate Limiting
+Idempotency
+HATEOAS
+-----
+D. API Authentication and Authorization
+API Gateway Authetication
+Role Based Access Control
+Attribute Based Access Control
+-----
+E. API Documentation Tools
+API Documentation Tools
+-----
+F. API Security
+API Key Security
+-----
+G. API Performance
+Caching Strategies
+Load Balancing
+API Throttling vs Rate Limiting
+API Monitoring
+-----
+H. API Integration Patterns
+API Integration
+Synchronous vs Asynchronous API
+Event Driven Architecture
+API Gateway
+Microservice Architecture
+Webhook vs API Polling
+Batch Processing
+Message Queues
+-----
+I. API Testing
+API Testing
+Mocking APIs
+API Contracts
+Best Practices for REST API Testing
+-----
+J. API Lifecycle Management
+API Lifecycle Management
+-----
+K. Standard and Compliance
+Best Practices for API Security
+GDPR Compliance
+PCI DSS
+HIPAA
+CCPA
