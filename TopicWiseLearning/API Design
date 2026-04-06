@@ -1,21 +1,21 @@
 What is API Design?
 API Design refers to planning and structuring how applications communicate with each other through an API (Application Programming Interface). Think of an API as a bridge that allows different software systems to talk to one another, share data, or trigger actions.
-----
+------
 A. Learn the Basics
-1.1: How Do APIs Work? - APIs operate through a request response cycle between a client and a server.  This exchanged data is in the form of HTML, JSON, XML, and Text.
-1.1.1 API client: The API client sends the request to the API server. This request can be triggered in many ways. For example, when a user clicks a button or enters a search term.
-1.1.2 API request:
+------
+How Do APIs Work? - APIs operate through a request response cycle between a client and a server.  This exchanged data is in the form of HTML, JSON, XML, and Text.
+1 API client: The API client sends the request to the API server. This request can be triggered in many ways. For example, when a user clicks a button or enters a search term.
+2 API request:
 -Endpoint: An API endpoint is a URL that provides access to a specific resource. For example, the article's end point in GeeksforGeeks would contain the logic for processing all requests that are related to articles.
 -Methods: The request method includes the type of operation that the client needs to perform on a given resource. REST APIs are accessible through standard HTTP methods, which perform common actions like retrieving, creating, updating, and deleting data.
 -Parameters: Parameters are the variables that are passed to an API endpoint to provide specific instructions for the API to process. These parameters can be included in the API request as part of the URL, in the query string, or in the request body. For example, the /articles endpoint of a blogging API might accept a “topic” parameter, which it would use to access and return articles on a specific topic.
 -Request headers : Request headers are key-value pairs that provide extra details about the request, such as its content type or authentication credentials.
 -Request body: The body is the main part of the request, and it includes the actual data that is required to create, update, or delete a resource. For instance, if you were creating a new article in GeeksforGeeks, the request body would likely include the article's content, title, and author.
-1.1.3 API server: The API client sends the request to the API server, which is responsible for handling authentication, validating input data, and retrieving or manipulating data.
-1.1.4 API response:Finally, the API server sends a response to the client. The API response typically includes the following components such as HTTP status codes, response headers and response body.
-
+3 API server: The API client sends the request to the API server, which is responsible for handling authentication, validating input data, and retrieving or manipulating data.
+4 API response:Finally, the API server sends a response to the client. The API response typically includes the following components such as HTTP status codes, response headers and response body.
 This communication happens over the HTTP/HTTPS protocol, with additional security via headers, tokens, or cookies.
-
-1.2: Types of API Architectures:
+----------
+Types of API Architectures:
 1.2.1. REST (Representational State Transfer):
 REST is a simple, flexible API architecture that uses HTTP methods (GET, POST, PUT, DELETE) for communication.
 Data Format: JSON, XML.
@@ -28,24 +28,71 @@ Data Format: JSON
 1.2.4. gRPC:
 High performance framework using Protocol Buffers (Protobuf).
 Data Format: Binary
-
-1.3 What are REST APIs? - It defines a set of functions (GET, PUT, POST, DELETE) that clients use to access server data. The functions used are:
+------------
+What are REST APIs? - It defines a set of functions (GET, PUT, POST, DELETE) that clients use to access server data. The functions used are:
 GET (retrieve a record)
 PUT (update a record)
 POST (create a record)
 DELETE (delete the record)
 Its main feature is that REST API is stateless, i.e., the servers do not save clients' data between requests.
-
-2. Types of API - There are four different types of APIs commonly used in web services: public, partner, private and composite.
+--------------
+Types of API - There are four different types of APIs commonly used in web services: public, partner, private and composite.
 Public API : A public API is open and available for use by any outside developer or business. These APIs can be used by anyone and these are also called as open APIs.
 Partner API : A partner API is made available to specifically selected and authorized outside developers or API consumers. The partners have some rights and licenses to access these APIs. These cannot be accessed by the public.
 Private API : Unlike Partner APIs, A private API is used only by internal users of an organization. Outsiders are not given any access to these APIs. These APIs are used by different teams inside the organization.
 Composite API : When the tasks are interconnected with each other, the APIs are combined to perform such tasks. This combination of APIs is called as composite API.
+------------
+TCP/IP- This explains how data is communicated between devices over a network using standardized protocols to ensure reliable and efficient transmission. Simpler and more practical than the seven-layer OSI model. Defined as a four-layer architecture consisting of Application, Transport, Internet, and Network Access layers. Layers of TCP/IP Model:
+1. Application Layer
+Acts as a bridge between user applications and lower network layers
+Supports protocols such as HTTP, FTP, SMTP, and DNS
+Handles data formatting so information is correctly understood by both sender and receiver
+Provides encryption for secure communication
+Manages sessions to track ongoing connections
 
+2. Transport Layer
+Ensures reliable and efficient delivery of data between devices, managing segmentation, ordering, and retransmission as needed. 
+TCP (Transmission Control Protocol): TCP is used when reliability and accuracy are important. It ensures that data is delivered exactly as sent.
+Error Checking: TCP detects errors in the data using checksums to ensure integrity.
+Retransmission: If any data is lost or corrupted during transmission, TCP automatically resends it.
+Ordered Delivery: Data is broken into packets, and TCP ensures these packets arrive in the correct sequence.
+Connection-Oriented: TCP establishes a connection between sender and receiver before sending data, maintaining a stable session throughout the communication.
+Use Cases: Loading web pages, downloading files, sending emails, or any application where data must be complete and accurate.
 
-Types of API and Applications
-TCP/IP
+UDP (User Datagram Protocol): UDP is used when speed is more important than perfect accuracy. It is faster but does not guarantee reliable delivery.
+No Error Checking: UDP does not verify whether the data has errors.
+No Retransmission: Lost or damaged data is not resent.
+No Ordered Delivery: Packets may arrive out of order, and the protocol does not fix it.
+Lightweight: Because it avoids extra checks and connections, UDP is faster and uses fewer resources.
+Use Cases: Live video streaming, online gaming, VoIP calls, or real-time applications where speed matters more than reliability.
+
+3. Internet Layer
+Responsible for addressing, packaging, and routing data packets so they can travel across networks and reach the correct destination device. It ensures that data can move between different networks efficiently.
+
+4. Network Access (Link Layer)
+Responsible for physically transmitting data over network hardware, including cables, switches, and wireless connections. It handles how data is formatted for the network medium and ensures it reaches the next device on the path.
+--------
+Working of TCP/IP Model:
+When Sending Data (From Sender to Receiver)
+Application Layer: The user’s software (like a web browser or email client) creates the data and passes it to the next layer.
+Transport Layer: The data is broken into segments, and TCP or UDP adds control information to ensure reliable delivery or fast transmission.
+Internet Layer: Each segment is encapsulated into packets with IP addresses so it can be routed across networks to the destination device.
+Network Access (Link) Layer: The packets are converted into frames suitable for the physical network (Ethernet, Wi-Fi) and transmitted over cables or wireless signals.
+
+When Receiving Data (At the Destination)
+Network Access Layer: The frames are received from the physical medium and checked for errors.
+Internet Layer: Frames are unpacked to extract packets and use the IP address to ensure it reaches the correct device.
+Transport Layer: Segments are reassembled into the original message, and any missing or corrupted data is corrected (if TCP is used).
+Application Layer: The complete data is delivered to the user application (like the browser displaying a webpage or the email client showing a message).
+------
+Why TCP/IP is Used Over the OSI Model
+TCP/IP is preferred over the OSI model because it is simpler, practical, and widely implemented in real-world networks and the Internet. Unlike OSI, which is mostly theoretical, TCP/IP is protocol-driven and focuses on actual communication needs.
+--------
 DNS
+
+
+
+
 HTTP
 HTTP Headers
 HTTP Methods
