@@ -25,10 +25,13 @@ Data Format: JSON, XML.
 SOAP is a more rigid protocol that requires XML based messaging for communication. Strict and secure protocol using XML for structured messaging.
 Data Format: XML
 1.2.3. GraphQL:
-Modern query language that lets clients fetch only the data they need.
+Modern query language that lets clients fetch only the data they need.GraphQL is an open-source query language for APIs and a server-side runtime for executing queries.
 Data Format: JSON
+Schema: It defines the data types that can be queried and their relationships. GraphQL uses its own language that is Schema Definition Language (SDL) for writing the schema. It is a human-readable language and It does not depends upon any specific language or framework. Schemas has two main types:
+Queries (for retrieving data): It is used to retrieve data from a GraphQL server. A query specifies the fields and data that the client wants to retrieve. It is similar to GET requests in REST APIs but allow to request exactly the data we need. It is reducing over-fetching or under-fetching.
+Mutations (for modifying data): It is used to modify data on the server. It can be used for creating, updating, or deleting data. Mutations are similar to POST, PUT, or DELETE requests in REST APIs.
 1.2.4. gRPC:
-High performance framework using Protocol Buffers (Protobuf).
+High performance framework using Protocol Buffers (Protobuf). It is an open-source Remote Procedure Call (RPC) protocol meant to enable flawless communication. gRPC is a high-performance, open-source universal RPC (Remote Procedure Call) framework initially developed by Google. It leverages HTTP/2 for transport, Protocol Buffers as the interface description language, and provides features such as authentication, load balancing, and more. gRPC is designed to enable efficient and robust communication between services in a microservices architecture, making it a popular choice for building distributed systems and APIs.
 Data Format: Binary
 1.2.5. WebSocket: WebSocket is a communication protocol that is mainly used for communication between a client and server.
 
