@@ -30,6 +30,19 @@ Data Format: JSON
 1.2.4. gRPC:
 High performance framework using Protocol Buffers (Protobuf).
 Data Format: Binary
+1.2.5. WebSocket: WebSocket is a communication protocol that is mainly used for communication between a client and server.
+
+Features of WebSocket are:
+Full-Duplex Protocol: WebSocket is a full-duplex protocol as it allows the application to send and receive data at the same time.
+Stateful Protocol: It means the connection between server and client will not be terminated until and unless closed by any one of them either by the client or by the server. Once the connection is terminated from one end it is also closed by another end.
+3-way handshake: Websocket uses a 3-way handshake also known as TCP connection for establishing communication between a client and server.
+WebSocket API: WebSocket API allows us to create web sockets, it is a javascript API that is capable of full-duplex communication using a TCP connection. WebSocket uses port 80 by default.
+
+Features of WebSocket API are:
+Bidirectional means data can be sent and received by both sides client-side as well as the server-side.
+Use of full-duplex model for communication.
+It uses a single TCP connection for communication between the client and server.
+Mainly used in real-time applications like chat applications, video calls applications, etc.
 ------------
 What are REST APIs? - It defines a set of functions (GET, PUT, POST, DELETE) that clients use to access server data. The functions used are:
 GET (retrieve a record)
@@ -244,14 +257,6 @@ Schema Compliance: Developers need to adhere to the API's schema for data consis
 }
 ------
 HTTP Cookies: HTTP cookies are small text files sent by a server to a web browser, stored locally to enable stateful interactions over the stateless HTTP protocol. They are primarily used for session management (logins), user personalization (themes/language), and tracking browsing habits. Browsers return these cookies to the server with subsequent requests. 
------
-B. Different API Styles
-Restful API
-JSON API
-WebSocket
-SOAP API
-GraphQL API
-gRPC API
 -----
 C. API Features
 Rest Principles
