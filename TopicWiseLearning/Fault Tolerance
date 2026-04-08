@@ -1,11 +1,20 @@
-Fault Tolerance:
+Fault Tolerance: 
+Fault tolerance refers to the ability of a system (computer, network, cloud cluster, etc.) to continue operating without interruption when one or more of its components fail. The objective of creating a fault-tolerant system is to prevent disruptions arising from a single point of failure, ensuring the high availability and business continuity of mission-critical applications or systems.  This is essential for high-availability services (think of online banking or healthcare apps) where downtime is unacceptable.
 
 Here are six top principles of designing fault-tolerant systems:
 1. Replication
-Replication involves creating multiple copies of data or services across different nodes or locations.
+Replication involves creating multiple copies of data or services across different nodes or locations. 
+1.1. Full Replication
+Full replication means creating a complete copy of the system or dataset across multiple nodes. 
+1.2. Partial Replication
+Partial replication means only duplicating important or frequently used components instead of the entire system.
+1.3. Shadowing or Passive Replication
+Shadowing, also known as passive replication, maintains backup replicas that remain inactive during normal operation and become active only when the primary system fails.
+4. Active Replication
+Active replication involves multiple replicas processing the same requests simultaneously to ensure continuous system operation.
 
 2. Redundancy
-Redundancy refers to having additional components or systems that can take over in case of a failure.
+Redundancy refers to having additional components or systems that can take over in case of a failure, as a backup.
 
 3. Load Balancing
 Load balancing distributes incoming network traffic across multiple servers to ensure no single server becomes a point of failure.
