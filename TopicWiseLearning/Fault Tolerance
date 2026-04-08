@@ -3,7 +3,7 @@ Fault tolerance refers to the ability of a system (computer, network, cloud clus
 
 Here are six top principles of designing fault-tolerant systems:
 1. Replication
-Replication involves creating multiple copies of data or services across different nodes or locations. 
+Replication involves creating multiple copies of data or services across different nodes or locations. Databases like Cassandra or PostgreSQL use leader-follower replication. Writes go to the primary node and are copied to replicas. If the primary fails, a replica takes over. Replication adds latency (synchronous replication waits for copies before confirming writes).
 1.1. Full Replication
 Full replication means creating a complete copy of the system or dataset across multiple nodes. 
 1.2. Partial Replication
@@ -14,16 +14,23 @@ Shadowing, also known as passive replication, maintains backup replicas that rem
 Active replication involves multiple replicas processing the same requests simultaneously to ensure continuous system operation.
 
 2. Redundancy
-Redundancy refers to having additional components or systems that can take over in case of a failure, as a backup.
+Redundancy refers to having additional components or systems that can take over in case of a failure, as a backup.There are two ways to do this. 
+Active-active means everything is live all the time. Active-active for stateless services (web servers).
+Active-passive means some stuff is sleeping until you need it. Active-passive for stateful systems (databases).
 
 3. Load Balancing
-Load balancing distributes incoming network traffic across multiple servers to ensure no single server becomes a point of failure.
+Load balancing distributes incoming network traffic across multiple servers to ensure no single server becomes a point of failure. Types of load balancers:
+Round-robin: Simple but dumb — sends each request to the next server.
+Least connections: Sends traffic to the least busy server.
+Weighted: Prioritizes servers with more capacity.
+Circuit breakers: Stop sending traffic to failing servers (Netflix Hystrix).
+Auto-scaling: Spin up new servers when load increases (AWS Auto Scaling Groups).
 
 4. Failover Mechanisms
-Failover mechanisms automatically switch to a standby system or component when the primary one fails.
+Failover mechanisms automatically switch to a standby system or component when the primary one fails.  It means switching to a backup when the main thing fails. For that to work, you need monitoring. Something has to know the server is down. And something has to reroute traffic. A standby server isn’t useful if nothing tells it to wake up. Good failover feels invisible. Things switch over in seconds, and users don’t notice. Failover is what happens when redundancy kicks in. The goal is to detect failures and switch to backups without human intervention.
 
 5. Graceful Degradation
-Graceful degradation ensures that a system continues to operate at reduced functionality rather than completely failing when some components fail.
+Graceful degradation ensures that a system continues to operate at reduced functionality rather than completely failing when some components fail. Sometimes things go so wrong that no backup can help. You’re overloaded. You’ve lost too many pieces. This is where graceful degradation matters. It means the important parts keep running while less important stuff gets turned off. A social media site might stop live comment updates but keep the main feed working. A video platform might lower the video quality but keep streaming.
 
 6. Monitoring and Alerting
 Continuously monitor the system’s health and performance, and set up alerts for any anomalies or failures.
