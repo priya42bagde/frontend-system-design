@@ -1,0 +1,6 @@
+Microservices:
+-Instead of building a monolithic application where all the functionality is tightly integrated into a single codebase, microservices break down the application into smaller, loosely coupled services.
+-Can be written in a variety of programming languages, and frameworks, and each service acts as a mini-application on its own.
+-A small, loosely coupled service that is designed to perform a specific business function and each microservice can be developed, deployed, and scaled independently.
+
+Examples: Banking System, E-commerce like Amazon, OTT plateforms like Netflix, Ride hailing Apps like Uber
